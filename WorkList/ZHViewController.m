@@ -46,6 +46,18 @@
     self.dataMArray = [[NSMutableArray alloc] init];
 }
 
+- (NSInteger)getWeekForDate:(NSDate *)date
+{
+    
+    NSCalendar *cal = [NSCalendar currentCalendar];
+
+    NSDateComponents *components = [cal components:( NSDayCalendarUnit | NSWeekdayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:date];
+    NSInteger   weekDay = [components weekday];
+    NSLog(@"%d", weekDay);
+    
+    return weekDay;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -74,31 +86,91 @@
     NSCalendar *cal = [NSCalendar currentCalendar];
     
     NSMutableArray *datesThisMonth = [NSMutableArray array];
-    NSRange rangeOfDaysThisMonth = [cal rangeOfUnit:NSMonthCalendarUnit inUnit:NSYearCalendarUnit forDate:today];
+    NSRange rangeOfDaysThisMonth = [cal rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:today];
     
-    NSDateComponents *components = [cal components:( NSYearCalendarUnit | NSEraCalendarUnit) fromDate:today];
-    [components setYear:0];
-    [components setHour:0];
-    [components setMinute:0];
-    [components setSecond:0];
+    NSDateComponents *components = [cal components:( NSWeekdayCalendarUnit | NSWeekOfMonthCalendarUnit ) fromDate:today];
+
+    [cal setMinimumDaysInFirstWeek:4];
+    
+    NSInteger weekdayOrdinal = [componentst weekOfYear];
+    NSLog(@"%d", weekdayOrdinal);
+    
+    
+    
+    NSDate *date = [NSDate date];
+    NSLog(@"week: %i", [[cal components: NSWeekCalendarUnit fromDate:date] week]);
+    NSLog(@"week: %i", [[cal components: NSWeekOfMonthCalendarUnit fromDate:date] weekOfMonth]);
+    
+    
+    
+    NSCalendar *calender = [NSCalendar currentCalendar];
+    NSRange weekRange = [calender rangeOfUnit:NSWeekCalendarUnit inUnit:NSMonthCalendarUnit forDate:date];
+    NSInteger weeksCount=weekRange.length;
+    NSLog(@"week count: %d",weeksCount);
+    
+    
+    
+    return;
     
     for (NSInteger i = rangeOfDaysThisMonth.location; i < NSMaxRange(rangeOfDaysThisMonth); ++i) {
-        [components setYear:i+1];
+        [components setDay:i+1];
         NSDate *dayInMonth = [cal dateFromComponents:components];
         [datesThisMonth addObject:dayInMonth];
         NSLog(@"%@", dayInMonth);
+
     }
     
-     
+    
+    
+//    日期的  星期几
+//    当月第几周
+//    本月一共多少周
+    
+//    NSWeekCalendarUnit
+    int currentWeek = 0;
+    int currentWeekday = 0;
+   
+    
+//   weekday   header
+    for (int i = 0; i < 7; i ++) {
+        UILabel *label = [[UILabel alloc] init];
+        label.frame = CGRectMake( 20+i*40, 0, 44, 44);
+        label.backgroundColor = [ UIColor redColor];
+        label.text = [NSString stringWithFormat:@"%d", i+1];
+        label.textAlignment = NSTextAlignmentCenter;
+        
+        [self.view addSubview:label];
+    }
+    
+//   week for month
+    
+    
+    
+    
+    
+    for (int i= 0; i < datesThisMonth.count; i ++) {
+        
+        NSDate *date = [datesThisMonth objectAtIndex:i];
+        
+        
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.frame = CGRectMake( 10, 10+i*44, 44, 44);
+        
+        label.text = [NSString stringWithFormat:@"%d", i+1];
+        
+        [self.view addSubview:label];
+        
+    }
 //    1970 － 2045
     
-    NSMutableArray *years = [[NSMutableArray alloc] init];
-    
-    for (int i = 1970; i < 2050; i++) {
-        [years addObject:[NSString stringWithFormat:@"%d", i]];
-    }
-    
-    [self getMonths:years];
+//    NSMutableArray *years = [[NSMutableArray alloc] init];
+//    
+//    for (int i = 1970; i < 2050; i++) {
+//        [years addObject:[NSString stringWithFormat:@"%d", i]];
+//    }
+//    
+//    [self getMonths:years];
 
 
 }

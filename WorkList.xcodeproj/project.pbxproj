@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0E42B6518B4C0DF00384450 /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E42B6418B4C0DF00384450 /* NSDate+Category.m */; };
 		C0F7955F18A8C82900096CD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F7955E18A8C82900096CD8 /* Foundation.framework */; };
 		C0F7956118A8C82900096CD8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F7956018A8C82900096CD8 /* CoreGraphics.framework */; };
 		C0F7956318A8C82900096CD8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F7956218A8C82900096CD8 /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C0E42B6318B4C0DF00384450 /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
+		C0E42B6418B4C0DF00384450 /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
 		C0F7955B18A8C82900096CD8 /* WorkList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F7955E18A8C82900096CD8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C0F7956018A8C82900096CD8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -122,6 +125,8 @@
 				C0F7959418A8C8C200096CD8 /* ProductCCell.m */,
 				C0F7959618A8C94B00096CD8 /* ImageView.h */,
 				C0F7959718A8C94B00096CD8 /* ImageView.m */,
+				C0E42B6318B4C0DF00384450 /* NSDate+Category.h */,
+				C0E42B6418B4C0DF00384450 /* NSDate+Category.m */,
 				C0F7956D18A8C82900096CD8 /* ZHAppDelegate.h */,
 				C0F7956E18A8C82900096CD8 /* ZHAppDelegate.m */,
 				C0F7957018A8C82900096CD8 /* Main.storyboard */,
@@ -262,6 +267,7 @@
 			files = (
 				C0F7957518A8C82900096CD8 /* ZHViewController.m in Sources */,
 				C0F7959818A8C94B00096CD8 /* ImageView.m in Sources */,
+				C0E42B6518B4C0DF00384450 /* NSDate+Category.m in Sources */,
 				C0F7959518A8C8C200096CD8 /* ProductCCell.m in Sources */,
 				C0F7956F18A8C82900096CD8 /* ZHAppDelegate.m in Sources */,
 				C0F7956B18A8C82900096CD8 /* main.m in Sources */,
@@ -397,6 +403,7 @@
 				GCC_PREFIX_HEADER = "WorkList/WorkList-Prefix.pch";
 				INFOPLIST_FILE = "WorkList/WorkList-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -410,6 +417,7 @@
 				GCC_PREFIX_HEADER = "WorkList/WorkList-Prefix.pch";
 				INFOPLIST_FILE = "WorkList/WorkList-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -475,6 +483,7 @@
 				C0F7958F18A8C82900096CD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0F7959018A8C82900096CD8 /* Build configuration list for PBXNativeTarget "WorkListTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +492,7 @@
 				C0F7959218A8C82900096CD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
