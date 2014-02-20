@@ -9,18 +9,18 @@
 #import "ImageView.h"
 
 
-static ImageView *imageView;
+static ImageView *image;
 
 
 @implementation ImageView
 
 + (id)share
 {
-    if (imageView) {
-        return imageView;
+    if (image) {
+        return image;
     }
-    imageView = [[ImageView alloc] init];
-    return imageView;
+    image = [[ImageView alloc] init];
+    return image;
 }
 
 - (id) init

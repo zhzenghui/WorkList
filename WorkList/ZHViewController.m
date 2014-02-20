@@ -9,6 +9,8 @@
 #import "ZHViewController.h"
 #import "ProductCCell.h"
 
+#import "NSDate+Category.h"
+
 
 @interface ZHViewController ()
 
@@ -58,6 +60,9 @@
     return weekDay;
 }
 
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -69,6 +74,11 @@
 //    周
 //
 //    天
+    UIImage *image ;
+    CIImage *output = [CIFilter filterWithName:@"CISepiaTone" keysAndValues:
+              kCIInputImageKey, image,
+              @"inputIntensity", @0.8,
+              nil].outputImage;
     
     
     
@@ -99,7 +109,7 @@
     
     NSDate *date = [NSDate date];
     NSLog(@"week: %i", [[cal components: NSWeekCalendarUnit fromDate:date] week]);
-    NSLog(@"week: %i", [[cal components: NSWeekOfMonthCalendarUnit fromDate:date] weekOfMonth]);
+//    NSLog(@"week: %i", [[cal components: NSWeekOfMonthCalendarUnit fromDate:date] weekOfMonth]);
     
     
     
@@ -108,10 +118,10 @@
     NSInteger weeksCount=weekRange.length;
     NSLog(@"week count: %d",weeksCount);
     
+
     
-    
-    return;
-    
+            /*
+
     for (NSInteger i = rangeOfDaysThisMonth.location; i < NSMaxRange(rangeOfDaysThisMonth); ++i) {
         [components setDay:i+1];
         NSDate *dayInMonth = [cal dateFromComponents:components];
@@ -119,7 +129,7 @@
         NSLog(@"%@", dayInMonth);
 
     }
-    
+
     
     
 //    日期的  星期几
@@ -173,6 +183,26 @@
 //    [self getMonths:years];
 
 
+     */
+    
+    
+NSLog(@"本月的周数量 %d",
+    [NSDate getWeekCountsForMonth:[NSDate date]]
+      );
+    
+    
+    NSLog(@"今天是星期 %d",
+          [NSDate getWeekDayForWeek:[NSDate date]]
+          );
+    
+    NSLog(@"本月第 %d 周",
+          [NSDate getWeekNumberForMonth:[NSDate date]]
+          );
+    
+    
+    NSLog(@"本年第 %d 周",
+          [NSDate getWeeksNumberForYear:[NSDate date]]
+          );
 }
 
 

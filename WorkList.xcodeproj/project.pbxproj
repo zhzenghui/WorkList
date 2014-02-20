@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0CC8DAE18B6076A005A0909 /* libpython2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CC8DAD18B6076A005A0909 /* libpython2.7.dylib */; };
 		C0E42B6518B4C0DF00384450 /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E42B6418B4C0DF00384450 /* NSDate+Category.m */; };
 		C0F7955F18A8C82900096CD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F7955E18A8C82900096CD8 /* Foundation.framework */; };
 		C0F7956118A8C82900096CD8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F7956018A8C82900096CD8 /* CoreGraphics.framework */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C0CC8DAD18B6076A005A0909 /* libpython2.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpython2.7.dylib; path = ../../../../../../System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config/libpython2.7.dylib; sourceTree = "<group>"; };
 		C0E42B6318B4C0DF00384450 /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
 		C0E42B6418B4C0DF00384450 /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
 		C0F7955B18A8C82900096CD8 /* WorkList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0CC8DAE18B6076A005A0909 /* libpython2.7.dylib in Frameworks */,
 				C0F7956118A8C82900096CD8 /* CoreGraphics.framework in Frameworks */,
 				C0F7956318A8C82900096CD8 /* UIKit.framework in Frameworks */,
 				C0F7955F18A8C82900096CD8 /* Foundation.framework in Frameworks */,
@@ -110,6 +113,7 @@
 		C0F7955D18A8C82900096CD8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C0CC8DAD18B6076A005A0909 /* libpython2.7.dylib */,
 				C0F7955E18A8C82900096CD8 /* Foundation.framework */,
 				C0F7956018A8C82900096CD8 /* CoreGraphics.framework */,
 				C0F7956218A8C82900096CD8 /* UIKit.framework */,
@@ -401,7 +405,16 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkList/WorkList-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config,
+				);
 				INFOPLIST_FILE = "WorkList/WorkList-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -415,7 +428,16 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkList/WorkList-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config,
+				);
 				INFOPLIST_FILE = "WorkList/WorkList-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

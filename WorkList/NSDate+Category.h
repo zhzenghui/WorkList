@@ -16,26 +16,26 @@
  
  */
 
-- (NSInteger)getWeekDayForCalendar:(NSDate *)date;
++ (NSInteger)getWeekDayForWeek:(NSDate *)date;
 
 /*
  获取 date 的 当月第几周
 */
-- (NSInteger)getWeekNumberFor:(NSDate *)date;
++ (NSInteger)getWeekNumberForMonth:(NSDate *)date;
 
 
 /*
  获取 date 的 当年第几周
  */
 
-- (NSInteger)getWeeksNumberForYear:(NSDate *)date;
++ (NSInteger)getWeeksNumberForYear:(NSDate *)date;
 
 
 /*
  获取 date 的当月有几个周
  
 */
-- (NSInteger)getWeekCountsForMonth:(NSDate *)date;
++ (NSInteger)getWeekCountsForMonth:(NSDate *)date;
 
 
 

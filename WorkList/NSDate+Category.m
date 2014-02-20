@@ -8,26 +8,30 @@
 
 #import "NSDate+Category.h"
 
+
+#define Calendar [NSCalendar currentCalendar]
 @implementation NSDate (Category)
 
 
 
-+ (NSInteger)getWeekDayForCalendar:(NSDate *)date
++ (NSInteger)getWeekDayForWeek:(NSDate *)date
 {
-    NSCalendar *cal = [NSCalendar currentCalendar];
+
     
-    NSDateComponents *components = [cal components:( NSDayCalendarUnit | NSWeekdayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:date];
-    NSInteger   weekDay = [components weekday];
-    NSLog(@"%d", weekDay);
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+    [comps setTimeZone:[NSTimeZone systemTimeZone]];
+
     
-    return weekDay;
+    int weekday = [comps weekday];
+    return weekday;
+    
 }
 
 
-+ (NSInteger)getWeekNumberFor:(NSDate *)date;
++ (NSInteger)getWeekNumberForMonth:(NSDate *)date;
 {
-    NSInteger week = [[[NSCalendar currentCalendar] components: NSWeekCalendarUnit fromDate:date] week];
-    
+    NSInteger week = [[Calendar components: NSWeekCalendarUnit fromDate:date] weekOfMonth];
     return week;
 }
 
@@ -39,7 +43,7 @@
 + (NSInteger)getWeeksNumberForYear:(NSDate *)date
 {
     
-    NSInteger week = [[[NSCalendar currentCalendar] components: NSWeekCalendarUnit fromDate:date] week];
+    NSInteger week = [[Calendar components: NSWeekCalendarUnit fromDate:date] week];
     
     return week;
 }
@@ -51,12 +55,9 @@
  */
 + (NSInteger)getWeekCountsForMonth:(NSDate *)date{
 
-    NSCalendar *calender = [NSCalendar currentCalendar];
-    NSRange weekRange = [calender rangeOfUnit:NSWeekCalendarUnit inUnit:NSMonthCalendarUnit forDate:date];
-    NSInteger weeksCount=weekRange.length;
-    NSLog(@"week count: %d",weeksCount);
+    NSRange weekRange = [[NSCalendar currentCalendar] rangeOfUnit:NSWeekCalendarUnit inUnit:NSMonthCalendarUnit forDate:date];
     
-    return weeksCount;
+    return weekRange.length;
 }
 
 
