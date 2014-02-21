@@ -11,14 +11,12 @@
 @interface NSDate (Category)
 
 
-/*
- 获取 date 的星期几
- 
- */
-
+/* 获取 date 的星期几  */
 + (NSInteger)getWeekDayForWeek:(NSDate *)date;
 
-/*
++ (NSString *)getWeekStringDayForWeek:(NSDate *)date;
+
+/*!
  获取 date 的 当月第几周
 */
 + (NSInteger)getWeekNumberForMonth:(NSDate *)date;

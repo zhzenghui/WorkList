@@ -74,49 +74,49 @@
 //    周
 //
 //    天
-    UIImage *image ;
-    CIImage *output = [CIFilter filterWithName:@"CISepiaTone" keysAndValues:
-              kCIInputImageKey, image,
-              @"inputIntensity", @0.8,
-              nil].outputImage;
-    
-    
-    
-    NSCalendar *calendar = [[NSCalendar alloc]
-                            initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *componentst = [[NSDateComponents alloc] init];
-    [componentst setYear:2012];
-    [componentst setMonth:11];
-    [componentst setDay:4];
-    
-    NSDate *november4th2012 = [calendar dateFromComponents:componentst];
-
-    NSDate *today =  [NSDate date];
-
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    
-    NSMutableArray *datesThisMonth = [NSMutableArray array];
-    NSRange rangeOfDaysThisMonth = [cal rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:today];
-    
-    NSDateComponents *components = [cal components:( NSWeekdayCalendarUnit | NSWeekOfMonthCalendarUnit ) fromDate:today];
-
-    [cal setMinimumDaysInFirstWeek:4];
-    
-    NSInteger weekdayOrdinal = [componentst weekOfYear];
-    NSLog(@"%d", weekdayOrdinal);
-    
-    
-    
-    NSDate *date = [NSDate date];
-    NSLog(@"week: %i", [[cal components: NSWeekCalendarUnit fromDate:date] week]);
-//    NSLog(@"week: %i", [[cal components: NSWeekOfMonthCalendarUnit fromDate:date] weekOfMonth]);
-    
-    
-    
-    NSCalendar *calender = [NSCalendar currentCalendar];
-    NSRange weekRange = [calender rangeOfUnit:NSWeekCalendarUnit inUnit:NSMonthCalendarUnit forDate:date];
-    NSInteger weeksCount=weekRange.length;
-    NSLog(@"week count: %d",weeksCount);
+//    UIImage *image ;
+//    CIImage *output = [CIFilter filterWithName:@"CISepiaTone" keysAndValues:
+//              kCIInputImageKey, image,
+//              @"inputIntensity", @0.8,
+//              nil].outputImage;
+//    
+//    
+//    
+//    NSCalendar *calendar = [[NSCalendar alloc]
+//                            initWithCalendarIdentifier:NSGregorianCalendar];
+//    NSDateComponents *componentst = [[NSDateComponents alloc] init];
+//    [componentst setYear:2012];
+//    [componentst setMonth:11];
+//    [componentst setDay:4];
+//    
+//    NSDate *november4th2012 = [calendar dateFromComponents:componentst];
+//
+//    NSDate *today =  [NSDate date];
+//
+//    NSCalendar *cal = [NSCalendar currentCalendar];
+//    
+//    NSMutableArray *datesThisMonth = [NSMutableArray array];
+//    NSRange rangeOfDaysThisMonth = [cal rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:today];
+//    
+//    NSDateComponents *components = [cal components:( NSWeekdayCalendarUnit | NSWeekOfMonthCalendarUnit ) fromDate:today];
+//
+//    [cal setMinimumDaysInFirstWeek:4];
+//    
+//    NSInteger weekdayOrdinal = [componentst weekOfYear];
+//    NSLog(@"%d", weekdayOrdinal);
+//    
+//    
+//    
+//    NSDate *date = [NSDate date];
+//    NSLog(@"week: %i", [[cal components: NSWeekCalendarUnit fromDate:date] week]);
+////    NSLog(@"week: %i", [[cal components: NSWeekOfMonthCalendarUnit fromDate:date] weekOfMonth]);
+//    
+//    
+//    
+//    NSCalendar *calender = [NSCalendar currentCalendar];
+//    NSRange weekRange = [calender rangeOfUnit:NSWeekCalendarUnit inUnit:NSMonthCalendarUnit forDate:date];
+//    NSInteger weeksCount=weekRange.length;
+//    NSLog(@"week count: %d",weeksCount);
     
 
     
@@ -184,25 +184,27 @@
 
 
      */
+
     
     
-NSLog(@"本月的周数量 %d",
-    [NSDate getWeekCountsForMonth:[NSDate date]]
-      );
     
     
-    NSLog(@"今天是星期 %d",
-          [NSDate getWeekDayForWeek:[NSDate date]]
-          );
+    int weekCount =   [NSDate getWeekCountsForMonth:[NSDate date]];
+    int weekDay = [NSDate getWeekDayForWeek:[NSDate date]];
+    int weekMonth = [NSDate getWeekNumberForMonth:[NSDate date]];
+    int weekYear = [NSDate getWeeksNumberForYear:[NSDate date]];
     
-    NSLog(@"本月第 %d 周",
-          [NSDate getWeekNumberForMonth:[NSDate date]]
-          );
+    NSLog(@"本月的周数量 %d",weekCount);
+    NSLog(@"今天是星期 %d",weekDay);
+    NSLog(@"本月第 %d 周", weekMonth);
+        NSLog(@"本年第 %d 周",weekYear);
     
     
-    NSLog(@"本年第 %d 周",
-          [NSDate getWeeksNumberForYear:[NSDate date]]
-          );
+    for (int i = 0; i< weekCount; i++) {
+        
+    }
+    
+    
 }
 
 
