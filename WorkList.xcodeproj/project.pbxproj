@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C0CC8DAE18B6076A005A0909 /* libpython2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CC8DAD18B6076A005A0909 /* libpython2.7.dylib */; };
 		C0E42B6518B4C0DF00384450 /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E42B6418B4C0DF00384450 /* NSDate+Category.m */; };
 		C0F7955F18A8C82900096CD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F7955E18A8C82900096CD8 /* Foundation.framework */; };
 		C0F7956118A8C82900096CD8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F7956018A8C82900096CD8 /* CoreGraphics.framework */; };
@@ -25,6 +24,12 @@
 		C0F7958A18A8C82900096CD8 /* WorkListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F7958918A8C82900096CD8 /* WorkListTests.m */; };
 		C0F7959518A8C8C200096CD8 /* ProductCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F7959418A8C8C200096CD8 /* ProductCCell.m */; };
 		C0F7959818A8C94B00096CD8 /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F7959718A8C94B00096CD8 /* ImageView.m */; };
+		F4DE053E18B8F4FB008C7E2D /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DE053D18B8F4FB008C7E2D /* CalendarView.m */; };
+		F4DE054218BA0241008C7E2D /* calendar-1136.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DE054118BA0241008C7E2D /* calendar-1136.png */; };
+		F4DE054718BA4902008C7E2D /* leave@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DE054318BA4902008C7E2D /* leave@2x.png */; };
+		F4DE054818BA4902008C7E2D /* sun_overtime@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DE054418BA4902008C7E2D /* sun_overtime@2x.png */; };
+		F4DE054918BA4902008C7E2D /* normal_overtime@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DE054518BA4902008C7E2D /* normal_overtime@2x.png */; };
+		F4DE054A18BA4902008C7E2D /* normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DE054618BA4902008C7E2D /* normal@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C0CC8DAD18B6076A005A0909 /* libpython2.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpython2.7.dylib; path = ../../../../../../System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config/libpython2.7.dylib; sourceTree = "<group>"; };
 		C0E42B6318B4C0DF00384450 /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
 		C0E42B6418B4C0DF00384450 /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
 		C0F7955B18A8C82900096CD8 /* WorkList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +68,13 @@
 		C0F7959418A8C8C200096CD8 /* ProductCCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCCell.m; sourceTree = "<group>"; };
 		C0F7959618A8C94B00096CD8 /* ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageView.h; sourceTree = "<group>"; };
 		C0F7959718A8C94B00096CD8 /* ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
+		F4DE053C18B8F4FB008C7E2D /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarView.h; sourceTree = "<group>"; };
+		F4DE053D18B8F4FB008C7E2D /* CalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarView.m; sourceTree = "<group>"; };
+		F4DE054118BA0241008C7E2D /* calendar-1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-1136.png"; path = "../../../art/cut/calendar-1136.png"; sourceTree = "<group>"; };
+		F4DE054318BA4902008C7E2D /* leave@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "leave@2x.png"; path = "../../../art/cut/calendar/leave@2x.png"; sourceTree = "<group>"; };
+		F4DE054418BA4902008C7E2D /* sun_overtime@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sun_overtime@2x.png"; path = "../../../art/cut/calendar/sun_overtime@2x.png"; sourceTree = "<group>"; };
+		F4DE054518BA4902008C7E2D /* normal_overtime@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "normal_overtime@2x.png"; path = "../../../art/cut/calendar/normal_overtime@2x.png"; sourceTree = "<group>"; };
+		F4DE054618BA4902008C7E2D /* normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "normal@2x.png"; path = "../../../art/cut/calendar/normal@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0CC8DAE18B6076A005A0909 /* libpython2.7.dylib in Frameworks */,
 				C0F7956118A8C82900096CD8 /* CoreGraphics.framework in Frameworks */,
 				C0F7956318A8C82900096CD8 /* UIKit.framework in Frameworks */,
 				C0F7955F18A8C82900096CD8 /* Foundation.framework in Frameworks */,
@@ -113,7 +123,6 @@
 		C0F7955D18A8C82900096CD8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C0CC8DAD18B6076A005A0909 /* libpython2.7.dylib */,
 				C0F7955E18A8C82900096CD8 /* Foundation.framework */,
 				C0F7956018A8C82900096CD8 /* CoreGraphics.framework */,
 				C0F7956218A8C82900096CD8 /* UIKit.framework */,
@@ -125,10 +134,13 @@
 		C0F7956418A8C82900096CD8 /* WorkList */ = {
 			isa = PBXGroup;
 			children = (
+				F4DE054B18BA4905008C7E2D /* images */,
 				C0F7959318A8C8C200096CD8 /* ProductCCell.h */,
 				C0F7959418A8C8C200096CD8 /* ProductCCell.m */,
 				C0F7959618A8C94B00096CD8 /* ImageView.h */,
 				C0F7959718A8C94B00096CD8 /* ImageView.m */,
+				F4DE053C18B8F4FB008C7E2D /* CalendarView.h */,
+				F4DE053D18B8F4FB008C7E2D /* CalendarView.m */,
 				C0E42B6318B4C0DF00384450 /* NSDate+Category.h */,
 				C0E42B6418B4C0DF00384450 /* NSDate+Category.m */,
 				C0F7956D18A8C82900096CD8 /* ZHAppDelegate.h */,
@@ -169,6 +181,18 @@
 				C0F7958618A8C82900096CD8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F4DE054B18BA4905008C7E2D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F4DE054318BA4902008C7E2D /* leave@2x.png */,
+				F4DE054418BA4902008C7E2D /* sun_overtime@2x.png */,
+				F4DE054518BA4902008C7E2D /* normal_overtime@2x.png */,
+				F4DE054618BA4902008C7E2D /* normal@2x.png */,
+				F4DE054118BA0241008C7E2D /* calendar-1136.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,7 +273,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0F7957718A8C82900096CD8 /* Images.xcassets in Resources */,
+				F4DE054718BA4902008C7E2D /* leave@2x.png in Resources */,
 				C0F7956918A8C82900096CD8 /* InfoPlist.strings in Resources */,
+				F4DE054A18BA4902008C7E2D /* normal@2x.png in Resources */,
+				F4DE054918BA4902008C7E2D /* normal_overtime@2x.png in Resources */,
+				F4DE054818BA4902008C7E2D /* sun_overtime@2x.png in Resources */,
+				F4DE054218BA0241008C7E2D /* calendar-1136.png in Resources */,
 				C0F7957218A8C82900096CD8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +300,7 @@
 			files = (
 				C0F7957518A8C82900096CD8 /* ZHViewController.m in Sources */,
 				C0F7959818A8C94B00096CD8 /* ImageView.m in Sources */,
+				F4DE053E18B8F4FB008C7E2D /* CalendarView.m in Sources */,
 				C0E42B6518B4C0DF00384450 /* NSDate+Category.m in Sources */,
 				C0F7959518A8C8C200096CD8 /* ProductCCell.m in Sources */,
 				C0F7956F18A8C82900096CD8 /* ZHAppDelegate.m in Sources */,

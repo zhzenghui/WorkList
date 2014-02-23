@@ -7,12 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalendarView.h"
+
 
 @interface ProductCCell : UICollectionViewCell
 {
  
     UILabel *ctnameLabel;
     UILabel *pbNameLabel;
+    
+    
+    CalendarView *cv;
+
     
 }
 

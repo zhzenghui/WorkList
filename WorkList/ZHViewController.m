@@ -8,6 +8,8 @@
 
 #import "ZHViewController.h"
 #import "ProductCCell.h"
+#import "CalendarView.h"
+
 
 #import "NSDate+Category.h"
 
@@ -31,7 +33,7 @@
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     
-    _collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(74, 120, 800 , 600) collectionViewLayout:layout];
+    _collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(0, 20, 320 , 480) collectionViewLayout:layout];
     [_collectionView setDataSource:self];
     [_collectionView setDelegate:self];
     
@@ -55,7 +57,6 @@
 
     NSDateComponents *components = [cal components:( NSDayCalendarUnit | NSWeekdayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:date];
     NSInteger   weekDay = [components weekday];
-    NSLog(@"%d", weekDay);
     
     return weekDay;
 }
@@ -67,145 +68,122 @@
 {
     [super viewDidLoad];
 
-//    年
-//    all  year ，  current year
-//    月
-//    all month ， current month
-//    周
-//
-//    天
-//    UIImage *image ;
-//    CIImage *output = [CIFilter filterWithName:@"CISepiaTone" keysAndValues:
-//              kCIInputImageKey, image,
-//              @"inputIntensity", @0.8,
-//              nil].outputImage;
-//    
-//    
-//    
-//    NSCalendar *calendar = [[NSCalendar alloc]
-//                            initWithCalendarIdentifier:NSGregorianCalendar];
-//    NSDateComponents *componentst = [[NSDateComponents alloc] init];
-//    [componentst setYear:2012];
-//    [componentst setMonth:11];
-//    [componentst setDay:4];
-//    
-//    NSDate *november4th2012 = [calendar dateFromComponents:componentst];
-//
-//    NSDate *today =  [NSDate date];
-//
-//    NSCalendar *cal = [NSCalendar currentCalendar];
-//    
-//    NSMutableArray *datesThisMonth = [NSMutableArray array];
-//    NSRange rangeOfDaysThisMonth = [cal rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:today];
-//    
-//    NSDateComponents *components = [cal components:( NSWeekdayCalendarUnit | NSWeekOfMonthCalendarUnit ) fromDate:today];
-//
-//    [cal setMinimumDaysInFirstWeek:4];
-//    
-//    NSInteger weekdayOrdinal = [componentst weekOfYear];
-//    NSLog(@"%d", weekdayOrdinal);
-//    
-//    
-//    
-//    NSDate *date = [NSDate date];
-//    NSLog(@"week: %i", [[cal components: NSWeekCalendarUnit fromDate:date] week]);
-////    NSLog(@"week: %i", [[cal components: NSWeekOfMonthCalendarUnit fromDate:date] weekOfMonth]);
-//    
-//    
-//    
-//    NSCalendar *calender = [NSCalendar currentCalendar];
-//    NSRange weekRange = [calender rangeOfUnit:NSWeekCalendarUnit inUnit:NSMonthCalendarUnit forDate:date];
-//    NSInteger weeksCount=weekRange.length;
-//    NSLog(@"week count: %d",weeksCount);
+    [self loadData];
     
-
+//    2013 ~ 2015
     
-            /*
-
-    for (NSInteger i = rangeOfDaysThisMonth.location; i < NSMaxRange(rangeOfDaysThisMonth); ++i) {
-        [components setDay:i+1];
-        NSDate *dayInMonth = [cal dateFromComponents:components];
-        [datesThisMonth addObject:dayInMonth];
-        NSLog(@"%@", dayInMonth);
-
-    }
-
-    
-    
-//    日期的  星期几
-//    当月第几周
-//    本月一共多少周
-    
-//    NSWeekCalendarUnit
-    int currentWeek = 0;
-    int currentWeekday = 0;
    
     
-//   weekday   header
-    for (int i = 0; i < 7; i ++) {
-        UILabel *label = [[UILabel alloc] init];
-        label.frame = CGRectMake( 20+i*40, 0, 44, 44);
-        label.backgroundColor = [ UIColor redColor];
-        label.text = [NSString stringWithFormat:@"%d", i+1];
-        label.textAlignment = NSTextAlignmentCenter;
+    
+    NSDate *_date = [NSDate date];
+    
+
+    
+    for (int i = 1; i <= 3; i++) {
+
+        [self.dataMArray addObject:@{@"date": _date}];
+
+         NSDateComponents *comps = [[NSCalendar currentCalendar] components:NSDayCalendarUnit|NSMonthCalendarUnit |NSYearCalendarUnit fromDate:_date];
         
-        [self.view addSubview:label];
+        comps.month ++;
+        NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:comps];
+        
+        _date = date;
+        
     }
     
-//   week for month
     
-    
-    
-    
-    
-    for (int i= 0; i < datesThisMonth.count; i ++) {
-        
-        NSDate *date = [datesThisMonth objectAtIndex:i];
-        
-        
-        
-        UILabel *label = [[UILabel alloc] init];
-        label.frame = CGRectMake( 10, 10+i*44, 44, 44);
-        
-        label.text = [NSString stringWithFormat:@"%d", i+1];
-        
-        [self.view addSubview:label];
-        
-    }
-//    1970 － 2045
-    
-//    NSMutableArray *years = [[NSMutableArray alloc] init];
 //    
-//    for (int i = 1970; i < 2050; i++) {
-//        [years addObject:[NSString stringWithFormat:@"%d", i]];
-//    }
-//    
-//    [self getMonths:years];
-
-
-     */
-
-    
-    
-    
-    
     int weekCount =   [NSDate getWeekCountsForMonth:[NSDate date]];
-    int weekDay = [NSDate getWeekDayForWeek:[NSDate date]];
-    int weekMonth = [NSDate getWeekNumberForMonth:[NSDate date]];
-    int weekYear = [NSDate getWeeksNumberForYear:[NSDate date]];
-    
+//    int weekDay = [NSDate getWeekDayForWeek:[NSDate date]];
+//    int weekMonth = [NSDate getWeekNumberForMonth:[NSDate date]];
+//    int weekYear = [NSDate getWeeksNumberForYear:[NSDate date]];
+//    
     NSLog(@"本月的周数量 %d",weekCount);
-    NSLog(@"今天是星期 %d",weekDay);
-    NSLog(@"本月第 %d 周", weekMonth);
-        NSLog(@"本年第 %d 周",weekYear);
+//    NSLog(@"今天是星期 %d",weekDay);
+//    NSLog(@"本月第 %d 周", weekMonth);
+//    NSLog(@"本年第 %d 周",weekYear);
+//    
+//    
+//    for (int i = 0; i< weekCount; i++) {
+//        
+//    }
     
     
-    for (int i = 0; i< weekCount; i++) {
-        
-    }
+
+//    cv =  [[CalendarView alloc] init];
+//    cv.frame = CGRectMake(0, 40, 320, 400);
+//
+//    
+//    
+//    NSDate *date = [self _firstDayOfNextMonthContainingDate:[NSDate date]];
+//    
+//    [cv setCurrentDate:date];
+//    [self.view addSubview:cv];
+//    
+//    
+//    
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    [button setTitle:@"<" forState:UIControlStateNormal];
+//    [button addTarget:self action:@selector(pre:) forControlEvents:UIControlEventTouchUpInside];
+//    button.tag = 10;
+//    button.frame = CGRectMake( 10, 400, 320, 40);
+//    
+//    [self.view addSubview:button];
+//    
+//    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    [button1 setTitle:@">" forState:UIControlStateNormal];
+//    [button1 addTarget:self action:@selector(pre:) forControlEvents:UIControlEventTouchUpInside];
+//    button1.tag = 11;
+//    button1.frame = CGRectMake( 10, 440, 320, 40);
+//    
+//    [self.view addSubview:button1];
+    
+    
+    
+//    UIImageView *iV = [[UIImageView alloc] initWithFrame:self.view.frame];
+//    iV.image = [UIImage imageNamed:@"calendar-1136"];
+//    [self.view addSubview:iV];
     
     
 }
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    
+    [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:2 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
+}
+
+- (void)pre:(UIButton *)button
+{
+    if (button.tag == 10) {
+        
+        NSDate *d = [self _firstDayOfNextMonthContainingDate:cv.currentDate];
+        cv.currentDate = d;
+    }
+    else {
+        NSDate *d = [self _endDayOfNextMonthContainingDate:cv.currentDate];
+        cv.currentDate = d;
+    }
+    
+    
+    
+}
+
+- (NSDate *)_firstDayOfNextMonthContainingDate:(NSDate *)date {
+    NSDateComponents *comps = [[NSCalendar currentCalendar] components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:date];
+    comps.day = 1;
+    comps.month = comps.month + 1;
+    return [[NSCalendar currentCalendar]   dateFromComponents:comps];
+}
+
+- (NSDate *)_endDayOfNextMonthContainingDate:(NSDate *)date {
+    NSDateComponents *comps = [[NSCalendar currentCalendar] components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:date];
+    comps.day = 1;
+    comps.month = comps.month - 1;
+    return [[NSCalendar currentCalendar]   dateFromComponents:comps];
+}
+
 
 
 
@@ -231,7 +209,6 @@
         [components setDay:i+1];
         NSDate *dayInMonth = [cal dateFromComponents:components];
         [datesThisMonth addObject:dayInMonth];
-        NSLog(@"%@", dayInMonth);
         
         [days addObject:dayInMonth];
     }
@@ -271,9 +248,7 @@
         NSString *month = [NSString stringWithFormat:@"%@-%d-25", year, i];
         [self getDays:month];
         
-        NSLog(@"%@", d);
     }
-    NSLog(@"------------------------------------------");
     
     return months;
 }
@@ -325,7 +300,13 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(233, 194);
+    
+    NSDate *date = [[self.dataMArray objectAtIndex:indexPath.row] objectForKey:@"date" ];
+    
+    int weekCount =   [NSDate getWeekCountsForMonth:date];
+    int height = (1.5+ weekCount) * 43;
+    
+    return CGSizeMake(320, height);
 }
 
 
